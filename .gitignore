@@ -81,4 +81,4 @@ dist
 .idea
 
 # PRISMIC
-prismic.config.js
+# prismic.config.js
