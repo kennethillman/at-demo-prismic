@@ -1,14 +1,8 @@
-# Web Scraper
+# Prismic CMS + Nuxt.js + Netlify
 
 An Active Talents Prrof of Concept
 
-This is a POC for the headless CMS togheter woth Nuxt.js and Netlify.   
-   
-[DEMO HERE](https://at-demo-web-scraper.netlify.com/)  
-   
-* Nuxt.js (Development)
-* Netlify (Auto builds)
-* Prismic (Hedless CMC)
+
 
 
 ## Build Setup
