@@ -49,6 +49,15 @@
     }
   }
 
+  .sgd-s-hero {
+    .title {
+      color: $orange;
+      &.-sub {
+        color: $blue;
+      }
+    }
+  }
+
 
  // - - - BUTTON
 

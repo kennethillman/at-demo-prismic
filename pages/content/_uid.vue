@@ -1,7 +1,8 @@
 <template>
   <div class="at-content" :data-wio-id= documentId>
    
-      <back/>
+      <!-- <back/> -->
+      <site-header />
       <prismic-edit-button :documentId="documentId"/>
 
       <div class="sgd-s-hero ">
@@ -40,12 +41,15 @@ import PrismicConfig from "~/prismic.config.js"
 import Back from '~/components/Back.vue'
 import Slices   from '~/components/Slices.vue'
 
+import siteHeader from '~/components/Header.vue'
+
 
 export default {
   name: 'post',
   components: {
     Slices,
-    Back
+    Back,
+    siteHeader
   },
   head () {
     return {

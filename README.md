@@ -1,7 +1,12 @@
 # Prismic CMS + Nuxt.js + Netlify
 
-An Active Talents Prrof of Concept
+An Active Talents Proof of Concept.
 
+## To do
+
+* Clean up base design
+* Navigation 
+..* Add a 2 level menu
 
 
 

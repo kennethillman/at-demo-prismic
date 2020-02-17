@@ -1,10 +1,19 @@
 <template>
   <div>
 
+    <!-- <slice-event :sliceRaw="slice"/> -->
+
    <!-- <h6>comp Slices -> {{slicesRaw}}</h6>  -->
 
-    <section v-for="(slice, index) in slices" :key="'slice-' + index">
+    <div v-for="(slice, index) in slices" :key="'slice-' + index">
 
+
+      <!-- EVENT -->
+      <template v-if="slice.slice_type === 'event'">
+        <slice-event :sliceRaw="slice"/>
+      </template>
+
+      
 
       <!-- TEXT -->
       <template v-if="slice.slice_type === 'text'">
@@ -24,13 +33,14 @@
         <slice-quote :sliceRaw="slice"/>
       </template>
 
-    </section>
+    </div>
   </div>
 </template>
 
 <script>
 
 import sliceText   from '~/components/slices/slice-text.vue'
+import sliceEvent   from '~/components/slices/slice-event.vue'
 import sliceImage   from '~/components/slices/slice-image.vue'
 import sliceQuote   from '~/components/slices/slice-quote.vue'
 
@@ -40,6 +50,7 @@ export default {
   ],
   components: {
     sliceText,
+    sliceEvent,
     sliceQuote,
     sliceImage
   },

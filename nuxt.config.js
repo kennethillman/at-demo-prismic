@@ -47,6 +47,7 @@ module.exports = {
   '~/plugins/link-resolver.js',
   '~/plugins/html-serializer.js',
   '~/plugins/prismic-vue.js',
+  '~/plugins/vue-fuse',
   { src: "~/plugins/vue-waypoint.client.js", mode: 'client'},
     '~/plugins/svg4everybody'
   ],

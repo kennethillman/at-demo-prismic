@@ -1,50 +1,26 @@
 <template>
-  <section class="container">
+  <div class="container -theme-dark ">
 
     <prismic-edit-button :documentId="documentId"/>
-    <site-header :menu="menu" />
+    <site-header />
 
-    
-
-    <!-- <home/> -->
 
 <!--     <div class="menu" >
       <top-menu :links="menu"/>
     </div> -->
 
-    <div class="sgd-s-hero -bg-pattern-light">
+    <div class="sgd-s-hero">
       <div>
-        <logo/>
         <h2 class="title">{{document.title[0].text}}</h2>
         <h6 class="title -sub">{{document.sub_title[0].text}}</h6>
-        <h6 class="title -sub -small"><a :href="document.link_to_github[0].text" target="_blank">Github</a></h6>
-
-        <search :index="allContent"/>
-
-        <br><br>
-        <!-- {{allContent}} -->
-
       </div>
     </div>
 
-
     <slices :slices-raw="allSlices" />
 
-    <!-- Check is any content exist -->
 
-      <div v-if="allContent.length !== 0" class="content-main">
-    
-        <section v-for="content in allContent" :key="content.id" v-bind:content="content" class="latest-content-list">
-          
-          <content-list :content="content" />
+     <slice-event />
 
-        </section>
-      </div>
-
-      <!-- If no content return message -->
-      <div v-else class="content-main">
-        <p>No content published at this time.</p>
-      </div>
 
     <div class="sgd-s-hero -footer">
       <div>
@@ -54,7 +30,9 @@
       </div>
     </div>
 
-  </section>
+
+
+  </div>
 </template>
 
 <script>
@@ -66,20 +44,18 @@ import Logo from '~/components/Logo.vue'
 import Home from '~/components/Home.vue'
 //import topMenu   from '~/components/Menu.vue'
 import Slices   from '~/components/Slices.vue'
+
 import siteHeader from '~/components/Header.vue'
+import sliceEvent   from '~/components/slices/slice-event.vue'
 
-import ContentList from '~/components/ContentList.vue'
-
-import Search from '~/components/Search.vue'
 
 export default {
   components: {
     Logo,
     Home,
     siteHeader,
-    Slices,
-    ContentList,
-    Search
+    sliceEvent,
+    Slices
   },
 
   async asyncData({context, error, req}) {
@@ -88,14 +64,14 @@ export default {
 
       let document = {}
       let _slices = []
-      const result = await api.getSingle('startpage')
+      const result = await api.getSingle('event')
 
       document = result.data
       _slices = document.body
 
-      let menu = {}
-      const topMenu = await api.getSingle('navigation')
-      menu = topMenu.data
+      // let menu = {}
+      // const topMenu = await api.getSingle('menu')
+      // menu = topMenu.data
 
        // Query to get allContent content to preview
       const prismicContent = await api.query(
@@ -104,15 +80,13 @@ export default {
       )
 
 
-
-
       // Load the edit button
       if (process.client) window.prismic.setupEditButton()
 
       return {
         document,
         documentId: result.id,
-        menu,
+        // menu,
         allContent: prismicContent.results,
         allSlices: _slices
       }
@@ -152,27 +126,6 @@ export default {
   }
 
 
-
-
-
-
-  // - - - BUTTON
-
-  .btn-temp {
-    color: $white;
-    background: $black;
-    padding: 8px 12px;
-    border-radius: 99px;
-    font-size: 14px;
-    line-height: 1;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 0 0 6px
-    // @media screen and (min-width: 768px) {
-    //   padding: 16px 44px;
-    //   font-size: 18px;
-    // }
-  }
 
 
 </style>

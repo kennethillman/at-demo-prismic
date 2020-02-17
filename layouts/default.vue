@@ -1,55 +1,43 @@
 <template>
-  <div class="site-grid">
+  <div class="site-grid" :class="{'-menu-open': this.$store.getters.getMenu, '-portrait': this.orientation === 'p', '-landscape': this.orientation === 'l','-menu-navigate': this.$store.getters.getMenuNavigate,}">
+    
     <nuxt/>
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+<script>
+
+
+
+export default {
+
+  data () {
+    return {
+      orientation: null
+    }
+  },
+  methods: {
+    onResize(event) {
+      this.$store.commit("setMenu",false)
+      this.deviceOrientation()
+    },
+    deviceOrientation() {
+      let winH = window.innerHeight;
+      let winW = window.innerWidth;
+      if (winH > winW && this.orientation !== 'p') {
+        this.orientation = 'p'
+        this.$store.commit("setOrientation",'portrait')
+      } else if (winW > winH && this.orientation !== 'l'){
+        this.orientation = 'l'
+        this.$store.commit("setOrientation",'landscape')
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.onResize)
+    this.deviceOrientation();
+  },
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-</style>

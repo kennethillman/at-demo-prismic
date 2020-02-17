@@ -1,77 +1,83 @@
 <template>
-  <nuxt-link :to="link" class="content-list-link">
 
-    <section class="content-list -no-image ">
+  <div>
+        <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
       <div>
         <div class="teaser-text col">
           <div class="col-body">
             <div class="header-primary">
-              <div class="anchor">Content</div> <div class="label">{{formattedDate}}</div></div> 
-              <div class="header">{{ $prismic.richTextAsPlain(content.data.title) }}</div> 
-              <div class="from">{{setPreamble(content)}}</div>
+              <div class="anchor">Conference</div><div class="label -large">January 16, 2020<!-- {{formattedDate}} --></div>
+            </div> 
+              <div class="header">In/Visible Talks<!-- {{ $prismic.richTextAsPlain(content.data.title) }} --></div> 
+              <div class="desc">The boundaries of design are constantly evolving. In 20/20, we’ve asked our speakers to GO BEYOND the expected perspectives, guardrails, materials, and thinking of the creative practice. Join us on January 16, 2020 for the 3rd annual In/Visible Talks.</div>
+              <br>
+              <div class="were">Sanibel Island, Florida, United States</div>
             </div>
           </div>
         </div>
       </section>
 
-  </nuxt-link>
+
+          <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
+      <div>
+        <div class="teaser-text col">
+          <div class="col-body">
+            <div class="header-primary">
+              <div class="anchor">Conference</div><br><div class="label -large">January 16, 2020<!-- {{formattedDate}} --></div></div> 
+              <div class="header">In/Visible Talks<!-- {{ $prismic.richTextAsPlain(content.data.title) }} --></div> 
+              <div class="desc">The boundaries of design are constantly evolving. In 20/20, we’ve asked our speakers to GO BEYOND the expected perspectives, guardrails, materials, and thinking of the creative practice. Join us on January 16, 2020 for the 3rd annual In/Visible Talks.</div>
+              <br>
+              <div class="were">Sanibel Island, Florida, United States</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+          <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
+      <div>
+        <div class="teaser-text col">
+          <div class="col-body">
+            <div class="header-primary">
+              <div class="anchor">Conference</div><br><div class="label -large">January 16, 2020<!-- {{formattedDate}} --></div></div> 
+              <div class="header">In/Visible Talks<!-- {{ $prismic.richTextAsPlain(content.data.title) }} --></div> 
+              <div class="desc">The boundaries of design are constantly evolving. In 20/20, we’ve asked our speakers to GO BEYOND the expected perspectives, guardrails, materials, and thinking of the creative practice. Join us on January 16, 2020 for the 3rd annual In/Visible Talks.</div>
+              <br>
+              <div class="were">Sanibel Island, Florida, United States</div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  
+  <!-- <prismic-rich-text :field="sliceRaw.primary.text"/> -->
+
 </template>
 
 <script>
-import LinkResolver from "~/plugins/link-resolver.js"
-
 export default {
-  props: ['content'],
-  data: function() {
-    return {
-      link: '',
-      formattedDate: this.content.first_publication_date.substring(0, 10),
-    }
-  },
-  name: 'content-list-item',
-  methods: {
-
-    setPreamble (content) {
-      const textLimit = 200;
-      let preamble = content.data.preamble[0].text;
-      const limitedText = preamble.substr(0, textLimit)
-
-      if (preamble.length > textLimit) {
-        return limitedText.substr(0, limitedText.lastIndexOf(' ')) + '...';
-      }
-      else {
-        return preamble;
-      }
-    },
-  },
-  created () {
-    this.link = LinkResolver(this.content)
-  },
+  props: ['sliceRaw'],
+  name: 'event'
 }
 </script>
 
 <style lang="scss">
 
-  .content-list-link {
-    text-decoration: none;
-    color: #5a5a5a;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .content-list {
+  section.sgd-s-slice-event {
 
     display: block;
     padding:0;
+
+
+
+
+    .were {
+      font-style: italic;
+      color: $grey2
+    }
    
 
-    &.-no-image {
-        .col-body {
-          padding-top: 2rem;
-          padding-bottom: 2rem;
-        }
-    }
+
 
 
     // - - - LAYOUT / FLEX
@@ -79,10 +85,13 @@ export default {
     .col {
       flex: 1;
       box-sizing: border-box;
+      padding: 16px 40px 16px 16px;
     }
 
     .col-body {
-      padding: 32px;
+      background-color: #313131;
+      padding: 16px 40px 16px 16px;
+
     }
 
 
@@ -98,16 +107,28 @@ export default {
 
     .header-primary {
       text-align: left;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+
+    }
+
+
+    .desc {
+      height: 2.7em; overflow: hidden;
     }
 
     .header {
       text-transform: uppercase;
       font-weight: 300;
-      font-size: 24px;
+      font-size: 32px;
       letter-spacing: .06em;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
       line-height: 1.14;
+      span {
+        display: block;
+        line-height: 1;
+        font-weight: 600;
+        font-size: .5em;
+      }
     }
 
     // - - - TRIANGLE
@@ -155,12 +176,12 @@ export default {
       }
     }
 
-  // - - - RESPONSIVE
+    // - - - RESPONSIVE
 
     // 600px
     @media screen and (min-width: 600px)  {
       .header {
-        font-size: 32px;
+        //font-size: 32px;
         line-height: 1.14;
       }
     }
@@ -194,9 +215,18 @@ export default {
         }
       }
 
+      
+    .label {
+      &.-large {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 4px 0 0;
+      }
+    }
+
 
       .header {
-        font-size: 24px;
+        // font-size: 48px;
       }
       .col-body {
         padding: 6px 24px;
@@ -285,8 +315,11 @@ export default {
     @media screen and (min-width: 1280px)  {
 
       .header {
-        font-size: 40px;
-        margin-bottom: 40px
+        font-size: 48px;
+        margin-bottom: 40px;
+        span {
+          font-size: 24px;
+        }
       }
       .col-body {
         padding: 6px 56px;
@@ -297,5 +330,7 @@ export default {
 
 
   }
+
+
 
 </style>
