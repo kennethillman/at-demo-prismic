@@ -6,7 +6,10 @@ An Active Talents Proof of Concept.
 
 * Clean up base design
 * Navigation 
-..* Add a 2 level menu
+  * Add a 2 level menu
+* Search
+  * Generate search index from content
+  * Make a sexy Search User experiance
 
 
 
