@@ -5,6 +5,7 @@ An Active Talents Proof of Concept.
 ## To do
 
 * Clean up base design
+* Add demo link
 * Navigation 
   * Add a 2 level menu
 * Search
