@@ -19,7 +19,7 @@
         <h6 class="title -sub">{{document.sub_title[0].text}}</h6>
         <h6 class="title -sub -small"><a :href="document.link_to_github[0].text" target="_blank">Github</a></h6>
 
-        <search :index="allContent"/>
+        <!-- <search :index="allContent"/> -->
 
         <br><br>
         <!-- {{allContent}} -->
