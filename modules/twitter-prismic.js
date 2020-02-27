@@ -51,7 +51,7 @@ export default async function asyncModule (context, error, req) {
 
 			let cleanTweets = {}
 			cleanTweets["text"] = tweet.data.tweet_text[0].text;
-			cleanTweets["url"] =  process.env.SITE_URL +  '/'+ tweet.type +'/'+ tweet.slugs[0];
+			cleanTweets["url"] =  process.env.SITE_URL + tweet.type +'/'+ tweet.slugs[0];
 			cleanTweets["tweet"] = 'Published - ' +cleanTweets["text"] + ' - ' + cleanTweets["url"];
 			_tweets_prismic.push(cleanTweets);
 
