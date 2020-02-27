@@ -1,0 +1,30 @@
+
+//
+// SITE - LINKS
+// 
+
+
+
+a {
+    color: $link;
+    outline: 0;
+
+    &:visited {
+        color: $link;
+    }
+    &:hover,
+    &:focus{
+        color: $link-hover;
+    }
+    &:active {
+        color: $link-click;
+    }
+    &:focus {
+        // outline: thin dotted;
+        outline: none; 
+    }
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+}

@@ -83,6 +83,26 @@
     }
   }
 
+  &.-brand {
+    &:before {
+      content: "brand";
+    }
+  }
+
+  &.-brand-global {
+    &:before {
+      content: "brand / global";
+    }
+  }
+
+  &.-center {
+    text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
   &.-global {
     &:before {
       content: "global";

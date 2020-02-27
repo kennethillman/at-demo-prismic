@@ -67,7 +67,7 @@ $max-width: 1130px !default;
 
             [class^="#{$prefixColumn}g-"] {
                 float: left;
-                @include box-sizing();
+                box-sizing: border-box;
             }
 
             // - - - GC
@@ -250,7 +250,6 @@ $max-width: 1130px !default;
 
     @include MOBILE     { .#{$prefix}-grid { @include grid-cols(12, g-m); } }
     @include TABLET     { .#{$prefix}-grid { @include grid-cols(12, g-t); } }
-
 
 
 } // MIXIN grid END

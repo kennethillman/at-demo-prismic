@@ -68,21 +68,18 @@
       display: block;
       font-weight: 300;
       font-size: 32px;
-      color: $purple;
+      color: $black;
       margin: 8px 0 0;
       text-transform: uppercase;
       line-height: 1.1;
       &.-sub {
-        font-size: 12px;
+        font-size: 21px;
         margin: .256em 0 0;
         color: $pink;
         font-weight: 400;
         line-height: 1.4;
         &.-in-text {
           margin: 64px 40px;
-        }
-        &.-small {
-          font-size: 12px;
         }
       }
     }
@@ -160,7 +157,6 @@
 
     &.-footer {
       padding: 54px 0;
-      margin-top: 5vh;
       min-height: unset;
       background-color: #1a1a1a;
       svg {
@@ -174,25 +170,12 @@
         font-size: 22px;
         transition: color .375s ease-in-out;
         &.-sub {
-          color: $pink;
-          font-size: 12px;
-          transition: color .375s ease-in-out;
-        }
-      }
-      &:hover {
-        svg {
-          fill: $orange;
-          transition: fill 2.675s ease-in-out;
-        }
-        .title {
           color: $orange;
-          transition: color 2.675s ease-in-out;
-          &.-sub {
-            color: $blue;
-            transition: color 2.675s ease-in-out;
-          }
+          font-size: 12px;
+          //transition: color .375s ease-in-out;
         }
       }
+
     }
 
 
@@ -206,9 +189,6 @@
       .title {
         font-size: 48px;
         letter-spacing: .16em;
-        &.-sub {
-          font-size: 18px;
-        }
       }
     }
 

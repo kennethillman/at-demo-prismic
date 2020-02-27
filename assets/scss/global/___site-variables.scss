@@ -6,23 +6,23 @@
 
 //  - - - COLORS
 
-$white: #ffffff;
-$black: #000000;
+$white: #f6f6f6 !default;
+$black: #1a1a1a !default;
 
-$grey1:	#4d4d4d !default;
-$grey2: #b5b5b5 !default;
-$grey3: #c9c9c9 !default;
-$grey4: #f5f5f5 !default;
-$grey5: #e0e0e0 !default;
+$grey1:	#3b3b3b !default;
+$grey2: #5c5c5c !default;
+$grey3: #c4c4c4 !default;
+$grey4: #e5e5e5 !default;
+
 
 
 // - - - BRAND COLORS
 
-$orange: 	#f98620;
-$pink: 		#fc1168;
-$purple: 	#70125f;
-$blue: 		#0093de;
-$darkblue: 	#004d9a;
+$orange: 	#f98620 !default;
+$pink: 		#fc1168 !default;
+$purple: 	#70125f !default;
+$blue: 		#0093de !default;
+$darkblue: 	#004d9a !default;
 
 
 // - - - INTERACTION
@@ -31,9 +31,26 @@ $int-pink:        $pink;
 $int-pink-hover:  darken($pink,9%);
 $int-pink-click:  lighten($pink,9%);
 
-$int-blue:          $blue;
-$int-blue-hover:    darken($blue,9%);
-$int-blue-click:    lighten($blue,9%);
+$int-purple:        $purple;
+$int-purple-hover:  darken($purple,9%);
+$int-purple-click:  lighten($purple,9%);
+
+$int-orange:         $orange;
+$int-orange-hover:   darken($orange,9%);
+$int-orange-click:   lighten($orange,9%);
+
+$int-blue:         $blue;
+$int-blue-hover:   darken($blue,9%);
+$int-blue-click:   lighten($blue,9%);
+
+
+$link: $int-pink;
+$link-hover: $int-pink-hover;
+$link-click: $int-pink-click;
+
+$link-sec: $int-purple;
+$link-sec-hover: $int-purple-hover;
+$link-sec-click: $int-purple-click;
 
 
 // - - - CONVERTION
@@ -52,5 +69,9 @@ $negative-click:  lighten($negative,9%);
 $font-system: "-apple-system", BlinkMacSystemFont, "Apple Color Emoji", “Segoe UI”, Roboto, “Helvetica Neue”, Helvetica, Arial, sans-serif;
 $font-oswald: "Oswald", sans-serif;
 
-$font-a: $font-oswald; // Headers
-$font-b: $font-system; // Bread
+
+$body-font: $font-system;
+$body-color: $grey1;
+
+$header-font: $font-oswald;
+$header-color: $black;

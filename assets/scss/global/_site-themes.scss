@@ -45,16 +45,8 @@
     }
 
     .label {
-      background: $orange;
-    }
-  }
-
-  .sgd-s-hero {
-    .title {
+      border: 1px solid $orange;
       color: $orange;
-      &.-sub {
-        color: $blue;
-      }
     }
   }
 

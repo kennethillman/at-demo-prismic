@@ -4,6 +4,26 @@
 //
 
 
+// - - - FLEX
+
+.-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+// - - - POSITION
+
+.-pos-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 // - - - TYPOGRAPHY
 
 .-text-center {
@@ -18,8 +38,36 @@
   text-align: right;
 }
 
+.-text-uppercase {
+  text-transform: uppercase;
+}
+
 
 // - - - DISPLAY
+
+.-show {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.-hidden {
+  visibility: hidden !important;
+}
+
+.-hide {
+  display: none !important;
+}
+
+// (i)-> Completely remove from the flow but leave available to screen readers.
+.-hidden-screenreaders {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
 
 .-hide-mobile {
   @media screen and (max-width: 767px)  {
@@ -39,15 +87,7 @@
   }
 }
 
-// - - - BACKGROUNDS
 
-.-bg-orange-pink {
-  background: linear-gradient(to right, $orange, $pink);
-}
-
-.-bg-pink-purple {
-  background: linear-gradient(to right, $pink, $purple);
-}
 
 
 

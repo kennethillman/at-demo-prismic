@@ -1,5 +1,6 @@
 const pkg = require('./package')
 const PrismicConfig = require('./prismic.config')
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -60,6 +61,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/svg-sprite',
+    'modules/twitter-prismic',
+    'modules/twitter-feed',
     ['vue-scrollto/nuxt', { duration: 675 }],
     ['nuxt-gmaps', { key: 'AIzaSyDe2ow3YELMDerTkl5QSVitReSxBpTYAmM', }]
   ],

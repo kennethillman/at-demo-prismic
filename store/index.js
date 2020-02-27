@@ -31,7 +31,6 @@ export const mutations = {
 export const actions = {
     async nuxtServerInit ({ commit }, { req }) {
 
-    console.log('nuxtServerInit DEMO PRISMIC');
 
     let testIndex = [
         {

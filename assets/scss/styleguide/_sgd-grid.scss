@@ -6,3 +6,6 @@
 
 // (i) -> /assets/scss/global/_site-grid.scss
 @include grid('styleguide', 'sgd-', 100%, 12, 48, 320px, 1130px);
+
+@include MOBILE     { .styleguide-grid { @include grid-cols(12, sgd-g-m); } }
+@include TABLET     { .styleguide-grid { @include grid-cols(12, sgd-g-t); } }

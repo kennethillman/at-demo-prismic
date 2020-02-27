@@ -4,42 +4,77 @@
 //
 
 
+  body {
+    font-family: $body-font;
+    color: $body-color;
+    line-height: 1.5;
 
-    body {
-      font-family: $font-b;
-      color: #5a5a5a;
-
-      line-height: 1.4;
-
-      @include VP320  {
-        font-size: 14px;
-      }
-
-       // 768px
-      @include VP768  {
-        font-size: 16px;
-      }
-
-      // 1280px
-      @include VP1280  {
-        font-size: 19px;
-      }
-
+    // MOBILE
+    @include VP320  {
+      font-size: 16px;
     }
 
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6  {
-        font-family: $font-oswald;
-        color: $black;
-        display: block;
-        margin: 0 0 .44em;
-        word-break: break-word;
+    // TABLET
+    @include VP768  {
+      font-size: 17px;
     }
+
+    // DESKTOP
+    @include VP1280  {
+      font-size: 18px;
+    }
+
+  }
+
+
+// - - - PREAMBLE
+
+  .preamble {
+
+    color: $black;
+    margin-bottom: 2em;
+    font-weight: bold;
+    line-height: 1.5;
+
+    // &::first-letter {
+    //   font-size: 2.9em;
+    //   line-height: 1;
+    //   float: left;
+    //   margin-right: .1em;
+    // }
+
+    // MOBILE
+    @include VP320  {
+      font-size: 18px;
+    }
+
+    // TABLET
+    @include VP768  {
+      font-size: 19px;
+    }
+
+    // DESKTOP
+    @include VP1280  {
+      font-size: 21px;
+    }
+
+  }
+
+
+// - - - HEADERS
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6  {
+      font-family: $header-font;
+      color: $header-color;
+      display: block;
+      margin: 0 0 .44em;
+      word-break: break-word;
+  }
 
   @include VP320  {
     h1  {font-size: 50px; line-height: 62px;}
@@ -73,52 +108,6 @@
 
 
 
-
-
-$SG: true;
-
-    @include SG {
-      // .vp320 {
-      //   h1  {font-size: 50px; line-height: 62px;}
-      //   h2  {font-size: 40px; line-height: 52px;}
-      //   h3  {font-size: 30px; line-height: 40px;}
-      //   h4  {font-size: 26px; line-height: 34px;}
-      //   h5  {font-size: 22px; line-height: 34px;}
-      //   h6  {font-size: 20px; line-height: 34px;}
-      // }
-    }
-
-
-    @include SG {
-      // .vp768 {
-      //   h1  {font-size: 60px; line-height: 72px;}
-      //   h2  {font-size: 50px; line-height: 62px;}
-      //   h3  {font-size: 30px; line-height: 50px;}
-      //   h4  {font-size: 36px; line-height: 44px;}
-      //   h5  {font-size: 32px; line-height: 44px;}
-      //   h6  {font-size: 30px; line-height: 44px;}
-      // }
-    }
-
-    @include SG {
-      // .vp1280 {
-      //   h1  {font-size: 70px; line-height: 82px;}
-      //   h2  {font-size: 60px; line-height: 72px;}
-      //   h3  {font-size: 50px; line-height: 60px;}
-      //   h4  {font-size: 46px; line-height: 54px;}
-      //   h5  {font-size: 42px; line-height: 54px;}
-      //   h6  {font-size: 40px; line-height: 54px;}
-      // }
-    }
-
-
-
-
-
-
-
-
-
 .header-primary {
   text-align: center;
   color: $purple;
@@ -132,7 +121,8 @@ $SG: true;
     background-color: $pink;
     line-height: 1;
     text-transform: uppercase;
-    border-radius: 2px;
+    border-radius: 3px;
+    display: none;
   }
 
   .header {
@@ -144,16 +134,19 @@ $SG: true;
     line-height: 1.14;
   }
 
+
+
   .label {
     display: inline-block;
     padding: .44em .88em;
     font-size: 12px;
-    font-weight: 200;
-    color: $white;
-    background-color: $purple;
+    font-weight: 600;
+    color: $purple;
+    border: 2px solid $purple;
     line-height: 1;
     text-transform: uppercase;
     border-radius: 2px;
+    display: none;
   }
 
 
@@ -172,12 +165,18 @@ $SG: true;
       margin: 12px 0 48px;
     }
 
-    .label {
-      font-size: 16px;
-      border-radius: 3px;
-    }
+
 
   }
+
+  // 1024px
+  @include VP1024  {
+    .label {
+      display: inline-block;
+    }
+  }
+
+
 
   // 1280px
   @include VP1280  {
@@ -193,10 +192,7 @@ $SG: true;
       margin: 16px 0 54px;
     }
 
-    .label {
-      font-size: 18px;
-      border-radius: 3px;
-    }
+
 
   }
 

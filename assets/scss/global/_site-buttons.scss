@@ -6,6 +6,7 @@
     font-size: 20px;
     padding: 7px 24px 9px;
     min-width: 166px;
+    max-width: 100%;
     font-weight: 600;
     letter-spacing: 0;
     line-height: 1;
@@ -14,7 +15,7 @@
     display: inline-block;
     text-align: center;
     box-sizing: border-box;
-    border: 4px solid $pink;
+    border: 4px solid $link;
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -27,23 +28,38 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: $pink;
+      background: $link;
       top: 0;
       left: 0;
       z-index: -1;
       transition: all ease-in-out .3s;
     }
 
+    &:visited {
+      color: $white;
+    }
+
     &:hover {
-      color: $pink;
+      color: $link;
 
       &:before {
         transform: translateX(100%);
       }
     }
 
+    &.-secondary {
+      color: $white;
+      border-color: $link-sec;
+      &:before {
+        background: $link-sec;
+      }
+      &:hover {
+        color: $link-sec;
+      }
+    }
+
     &.-ghost {
-      color: $pink;
+      color: $link;
       &:before {
         transform: translateX(100%);
       }
@@ -53,23 +69,19 @@
           transform: translateX(0);
         }
       }
+      &.-secondary {
+        color: $link-sec;
+        &:hover {
+          color: $white;
+        }
+      }
+
     }
 
     &.-small{
       min-width: unset;
       font-size: 18px;
       padding: 5px 20px 7px;
-    }
-
-
-    // 480px
-    @media screen and (min-width: 480px)  {
-
-    }
-
-    // 600px
-    @media screen and (min-width: 600px)  {
-
     }
 
     // 768px
@@ -93,36 +105,19 @@
     // 1280px
     @media screen and (min-width: 1280px)  {
       font-size: 30px;
-       min-width: 250px;
+      min-width: 250px;
       &.-small{
         font-size: 24px;
       }
     }
 
-      // 1280px
+    // 1440px
     @media screen and (min-width: 1440px)  {
       font-size: 32px;
-       min-width: 295px;
+      min-width: 295px;
     }
 
-    // 1680px
-    @media screen and (min-width: 1680px)  {
-      border: 6px solid $pink;
-      font-size: 34px;
-       min-width: 330px;
-    }
 
-    // 1920px
-    @media screen and (min-width: 1920px)  {
-      font-size: 36px;
-       min-width: 320px;
-    }
-
-    // 2600px
-    @media screen and (min-width: 2600px)  {
-      font-size: 46px;
-      min-width: 420px;
-    }
 
 
 

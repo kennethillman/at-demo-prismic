@@ -4,7 +4,44 @@
 //
 
 
+// - - - SELECTION
+
+::-moz-selection { background: $pink; color:$white;}
+::selection { background: $pink; color:$white;}
+
+// - - - BOX MODEL
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
 // - - - GENERAL
+
+html {
+
+  /* Disable certain interactions on touch devices */
+  -webkit-touch-callout: none; 
+  -webkit-highlight: none; 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  /* Prevent adjustments of font size after orientation changes */
+  -webkit-text-size-adjust: 100%;
+
+  /* Disable auto-enlargement of small text in Safari */
+  text-size-adjust: 100%;
+
+  /* Make type rendering look crisper */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Enable kerning and optional ligatures */
+  text-rendering: optimizeLegibility;
+
+}
 
 body {
 	margin: 0;
@@ -14,28 +51,35 @@ img {
   width: 100%;
   height: auto;
   display: block;
+  border-style: none;
+}
+
+p {
+  margin: 0 0 1em
+}
+
+figure {
+  margin: 0;
 }
 
 strong,
 b {
   font-weight: bold;
 }
+
 em {
   font-style: italic;
 }
 
 
-a {
-  color: $pink;
-}
 
+// - - - SLICE / SECTION
 
-
-// - - - SLICE
-
-[class^="slice-"] {
+[class^="slice-"],
+[class^="s-"]  {
 
   padding: 48px 0;
+  position: relative;
 
   // 768px
   @media screen and (min-width: 768px)  {
