@@ -38,6 +38,22 @@ export default async function asyncModule (context, error, req) {
 	    const twitterTweets = await client.get(getTweets, getParams)
 
 
+
+	    const prismicRoutesRes = await api.query([
+	        Prismic.Predicates.at('document.type', 'content')
+	    ])
+
+	    const prismicRoutesRoutes = prismicRoutesRes.results.map((cont) => {
+		    return {
+		      route: `/content/${cont.id}`,
+		      payload: cont
+		    }
+		 })
+
+	    // console.log('prismicRoutesRoutes -> ' , prismicRoutesRoutes)
+
+
+
 		// TWITTER - Clean the reference data
 	   	twitterTweets.forEach(function(tweet,i) { 
 			let cleanTweets = {}
@@ -87,6 +103,11 @@ export default async function asyncModule (context, error, req) {
 			});
 			
 		}
+
+		this.nuxt.hook('generate:before', generator => {
+	  		fse.outputJSON('./tweets/prismic-routes.json', prismicRoutesRoutes, { spaces: 4 })
+	  		
+		})
 
 	  	//this.nuxt.hook('build:before', generator => {
 	  		//fse.outputJSON('./tweets/prismic-tweet-me.json', _tweets_prismic, { spaces: 4 })
