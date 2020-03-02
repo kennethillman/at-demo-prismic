@@ -3,7 +3,7 @@ const Prismic = require ('prismic-javascript')
 const PrismicConfig = require('./prismic.config')
 require('dotenv').config()
 
-const routedata = require('./tweets/prismic-routes.json')
+const routedata = require('./static/prismic-routes.json')
 
   
 // https://medium.com/js-dojo/how-i-generated-dynamic-routes-for-different-nuxt-js-pages-ce2ee6972743  
@@ -21,6 +21,8 @@ const dynamicRoutes = async (req) => {
 
   // Contact more routes here
   const routes = routesForContent
+
+  console.log('routes ->' , routes);
 
   return routes
 }
