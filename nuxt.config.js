@@ -15,16 +15,13 @@ const dynamicRoutes = async (req) => {
   //const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
   //const resForContent  = await api.query(Prismic.Predicates.at("document.type", "content"))
   const routesForContent = routedata.map((cont) => {
-     console.log('cont 2 ->' , cont);
-    return {
-      route: `${cont.route}`,
-      payload: cont
-    }
+    console.log('cont 2 ->' , cont);
+    return cont.route
   })
 
   // Contact more routes here
   const routes = routesForContent
-  //console.log('routes 3 ->' , routes);
+  console.log('routes 3 ->' , routes);
 
   return routes
 }
