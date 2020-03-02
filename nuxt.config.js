@@ -3,32 +3,31 @@ const Prismic = require ('prismic-javascript')
 const PrismicConfig = require('./prismic.config')
 require('dotenv').config()
 
-const routedata = require('./static/prismic-routes.json')
+
 
   
 // https://medium.com/js-dojo/how-i-generated-dynamic-routes-for-different-nuxt-js-pages-ce2ee6972743  
 
 const dynamicRoutes = async (req) => {
 
+  const routedata = require('./tweets/prismic-routes.json')
+
   //const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
   //const resForContent  = await api.query(Prismic.Predicates.at("document.type", "content"))
   const routesForContent = routedata.map((cont) => {
+     console.log('cont 2 ->' , cont);
     return {
-      route: `/content/${cont.id}`,
+      route: `${cont.route}`,
       payload: cont
     }
   })
 
   // Contact more routes here
   const routes = routesForContent
-
-  console.log('routes ->' , routes);
+  //console.log('routes 3 ->' , routes);
 
   return routes
 }
-
-
-
 
 
 
@@ -121,9 +120,9 @@ module.exports = {
   ** Generate
   */
 
-  // generate: {
-  //   routes: dynamicRoutes
-  // },
+  generate: {
+    routes: dynamicRoutes
+  },
 
   /*
   ** Build configuration
@@ -133,6 +132,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      console.log('- - - > nuxtServerInit')
        config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
   }

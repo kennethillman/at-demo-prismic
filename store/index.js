@@ -1,3 +1,7 @@
+
+import Prismic from "prismic-javascript"
+import PrismicConfig from "~/prismic.config.js"
+
 export const state = () => ({
   menu: false,
   orientation: false,
@@ -29,7 +33,8 @@ export const mutations = {
 }
 
 export const actions = {
-    async nuxtServerInit ({ commit }, { req }) {
+  
+  async nuxtServerInit ({ commit }, { req }) {
 
 
     let testIndex = [
@@ -71,8 +76,6 @@ export const actions = {
           description: 'Both kingdoms ignore God and his prophets, until they both fall captive to other world empires.'
         }
       ]
-
-
 
     commit('setSearchIndex', testIndex)
 

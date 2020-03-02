@@ -105,7 +105,7 @@ export default async function asyncModule (context, error, req) {
 		}
 
 		this.nuxt.hook('build:before', generator => {
-	  		fse.outputJSON('./static/prismic-routes.json', prismicRoutesRoutes, { spaces: 4 })
+	  		fse.outputJSON('./tweets/prismic-routes.json', prismicRoutesRoutes, { spaces: 4 })
 	  		
 		})
 
