@@ -2,29 +2,6 @@ const pkg = require('./package')
 const PrismicConfig = require('./prismic.config')
 require('dotenv').config()
 
-
-
-const routes = () =>
-  Prismic.getApi(PrismicConfig.apiEndpoint)
-    .then(api =>
-      api.query(Prismic.Predicates.at('document.type', 'content'), {
-        pageSize: 100,
-      }),
-    )
-    .then(res => {
-      if (res.total_pages > 1) {
-        console.warn('we have more than 100 pages, fix it');
-        process.exit(1);
-      }
-      return [
-        '/',
-        ...res.results.map(content => `${content.uid.replace(/_/g, '/')}/`),
-        '404',
-      ];
-    });
-
-
-
 module.exports = {
   mode: 'universal',
 
@@ -75,13 +52,6 @@ module.exports = {
   { src: "~/plugins/vue-waypoint.client.js", mode: 'client'},
     '~/plugins/svg4everybody'
   ],
-
-  /*
-  ** Generate dynmaic routes
-  */
-  generate: {
-    routes
-  },
 
   /*
   ** Nuxt.js modules

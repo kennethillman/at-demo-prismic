@@ -29,7 +29,7 @@
 <script>
 export default {
   props: ['sliceRaw'],
-  name: 'quote'
+  name: 'slice-quote'
 }
 </script>
 

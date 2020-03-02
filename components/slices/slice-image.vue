@@ -25,7 +25,7 @@
 <script>
 export default {
   props: ['sliceRaw'],
-  name: 'text'
+  name: 'slice-image'
 }
 </script>
 

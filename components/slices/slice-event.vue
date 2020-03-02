@@ -17,12 +17,11 @@
         </div>
       </section>
 
-
-          <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
-      <div>
-        <div class="teaser-text col">
-          <div class="col-body">
-            <div class="header-primary">
+      <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
+        <div>
+          <div class="teaser-text col">
+            <div class="col-body">
+              <div class="header-primary">
               <div class="anchor">Conference</div><br><div class="label -large">January 16, 2020<!-- {{formattedDate}} --></div></div> 
               <div class="header">In/Visible Talks<!-- {{ $prismic.richTextAsPlain(content.data.title) }} --></div> 
               <div class="desc">The boundaries of design are constantly evolving. In 20/20, we’ve asked our speakers to GO BEYOND the expected perspectives, guardrails, materials, and thinking of the creative practice. Join us on January 16, 2020 for the 3rd annual In/Visible Talks.</div>
@@ -33,12 +32,11 @@
         </div>
       </section>
 
-
-          <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
-      <div>
-        <div class="teaser-text col">
-          <div class="col-body">
-            <div class="header-primary">
+      <section class="sgd-s-slice-event -no-image -bg-pattern-dark ">
+        <div>
+          <div class="teaser-text col">
+            <div class="col-body">
+              <div class="header-primary">
               <div class="anchor">Conference</div><br><div class="label -large">January 16, 2020<!-- {{formattedDate}} --></div></div> 
               <div class="header">In/Visible Talks<!-- {{ $prismic.richTextAsPlain(content.data.title) }} --></div> 
               <div class="desc">The boundaries of design are constantly evolving. In 20/20, we’ve asked our speakers to GO BEYOND the expected perspectives, guardrails, materials, and thinking of the creative practice. Join us on January 16, 2020 for the 3rd annual In/Visible Talks.</div>
@@ -57,7 +55,7 @@
 <script>
 export default {
   props: ['sliceRaw'],
-  name: 'event'
+  name: 'slice-event'
 }
 </script>
 
