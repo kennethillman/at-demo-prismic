@@ -117,9 +117,9 @@ module.exports = {
   ** Generate
   */
 
-  generate: {
-    routes: dynamicRoutes
-  },
+  // generate: {
+  //   routes: dynamicRoutes
+  // },
 
   /*
   ** Build configuration
