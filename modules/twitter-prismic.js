@@ -24,6 +24,8 @@ export default async function asyncModule (context, error, req) {
 
 	try{
 
+		console.log('- - - > module -> twitter-prismic')
+
 		// STORAGE - For clean data 
 		const _tweets_prismic = []
 	    const _tweets_twitter = []
@@ -36,21 +38,6 @@ export default async function asyncModule (context, error, req) {
 	        Prismic.Predicates.at('document.type', 'content') , Prismic.Predicates.at('my.content.tweet_me', 'Yes')
 	    ])
 	    const twitterTweets = await client.get(getTweets, getParams)
-
-
-
-	    const prismicRoutesRes = await api.query([
-	        Prismic.Predicates.at('document.type', 'content')
-	    ])
-
-	    const prismicRoutesRoutes = prismicRoutesRes.results.map((cont) => {
-		    return '/content/'+cont.uid
-		      
-		    
-		 })
-
-	    // console.log('prismicRoutesRoutes -> ' , prismicRoutesRoutes)
-
 
 
 		// TWITTER - Clean the reference data
@@ -103,16 +90,12 @@ export default async function asyncModule (context, error, req) {
 			
 		}
 
-		this.nuxt.hook('build:before', generator => {
-	  		fse.outputJSON('./tweets/prismic-routes.json', prismicRoutesRoutes, { spaces: 4 })
-	  		
-		})
 
-	  	//this.nuxt.hook('build:before', generator => {
-	  		//fse.outputJSON('./tweets/prismic-tweet-me.json', _tweets_prismic, { spaces: 4 })
-	  		//fse.outputJSON('./tweets/Prismic-tweet-ref.json', _tweets_twitter, { spaces: 4 })
-	  		//fse.outputJSON('./tweets/Prismic-tweet-auto-post.json', _tweets_auto_post, { spaces: 4 })
-		//})
+ //  	this.nuxt.hook('build:before', generator => {
+ //  		fse.outputJSON('./_data/prismic-tweet-me.json', _tweets_prismic, { spaces: 4 })
+ //  		fse.outputJSON('./_data/Prismic-tweet-ref.json', _tweets_twitter, { spaces: 4 })
+ //  		fse.outputJSON('./_data/Prismic-tweet-auto-post.json', _tweets_auto_post, { spaces: 4 })
+	// })
 
     } catch (e) {
       console.log(e)
