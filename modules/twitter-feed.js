@@ -29,11 +29,12 @@ const getCallback = (error, tweets, response) => {
 			_tweets.push(cleanTweets);
 		});
 
-		fse.outputJSON('./tweets/tweets.json', _tweets.slice(0, 5), { spaces: 4 })
+		fse.outputJSON('./_data/tweets.json', _tweets.slice(0, 5), { spaces: 4 })
 
 }
 
-export default function NuxtTwitter(config) {
+export default function twitterFeed(config) {
+	console.log('- - - > module -> twitter-feed')
 	this.nuxt.hook('build:before', generator => {
 		client.get(getTweets, getParams, getCallback)
 	})

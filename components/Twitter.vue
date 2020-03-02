@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import tweets from '@/tweets/tweets'
+import tweets from '@/_data/tweets'
 
 export default {
   props: [

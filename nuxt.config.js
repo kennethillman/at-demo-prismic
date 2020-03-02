@@ -4,29 +4,11 @@ const PrismicConfig = require('./prismic.config')
 require('dotenv').config()
 
 
-
-  
-// https://medium.com/js-dojo/how-i-generated-dynamic-routes-for-different-nuxt-js-pages-ce2ee6972743  
-
-const dynamicRoutes = async (req) => {
-
-  // const routedata = require('./tweets/prismic-routes.json')
-
-  // //const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
-  // //const resForContent  = await api.query(Prismic.Predicates.at("document.type", "content"))
-  // const routesForContent = routedata.map((cont) => {
-  //    console.log('cont 2 ->' , cont);
-  //   return cont
-  // })
-
-  // Contact more routes here
-  const routes = require('./tweets/prismic-routes.json')
-
-  console.log('routes  3 ->' , routes );
-
+// Needed for Netlify  $yarn run generate
+const dynamicRoutes =  () => {
+  const routes = require('./_data/prismic-routes.json')
   return routes
 }
-
 
 
 module.exports = {
@@ -85,11 +67,13 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
+    'modules/test',
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/svg-sprite',
     'modules/twitter-prismic',
     'modules/twitter-feed',
+    'modules/prismic-dynamic-routes',
     ['vue-scrollto/nuxt', { duration: 675 }],
     ['nuxt-gmaps', { key: 'AIzaSyDe2ow3YELMDerTkl5QSVitReSxBpTYAmM', }]
   ],
@@ -119,12 +103,12 @@ module.exports = {
   */
 
   generate: {
-    routes: [
-    "/content/mahatma-gandhi",
-    "/content/nelson-mandela",
-    "/content/pepacaka"
-]
+    routes: dynamicRoutes
   },
+
+  /*
+
+  */
 
   /*
   ** Build configuration
@@ -134,7 +118,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      console.log('- - - > nuxtServerInit')
+      console.log('- - - > nuxt.config -> Build')
        config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
   }
