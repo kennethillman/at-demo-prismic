@@ -44,9 +44,9 @@ export default async function asyncModule (context, error, req) {
 	    ])
 
 	    const prismicRoutesRoutes = prismicRoutesRes.results.map((cont) => {
-		    return {
-		      route: `/content/${cont.id}`
-		    }
+		    return '/content/'+cont.uid
+		      
+		    
 		 })
 
 	    // console.log('prismicRoutesRoutes -> ' , prismicRoutesRoutes)

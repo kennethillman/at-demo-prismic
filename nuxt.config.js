@@ -10,18 +10,19 @@ require('dotenv').config()
 
 const dynamicRoutes = async (req) => {
 
-  const routedata = require('./tweets/prismic-routes.json')
+  // const routedata = require('./tweets/prismic-routes.json')
 
-  //const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
-  //const resForContent  = await api.query(Prismic.Predicates.at("document.type", "content"))
-  const routesForContent = routedata.map((cont) => {
-    console.log('cont 2 ->' , cont);
-    return cont.route
-  })
+  // //const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
+  // //const resForContent  = await api.query(Prismic.Predicates.at("document.type", "content"))
+  // const routesForContent = routedata.map((cont) => {
+  //    console.log('cont 2 ->' , cont);
+  //   return cont
+  // })
 
   // Contact more routes here
-  const routes = routesForContent
-  console.log('routes 3 ->' , routes);
+  const routes = require('./tweets/prismic-routes.json')
+
+  console.log('routes  3 ->' , routes );
 
   return routes
 }
@@ -117,9 +118,13 @@ module.exports = {
   ** Generate
   */
 
-  // generate: {
-  //   routes: dynamicRoutes
-  // },
+  generate: {
+    routes: [
+    "/content/mahatma-gandhi",
+    "/content/nelson-mandela",
+    "/content/pepacaka"
+]
+  },
 
   /*
   ** Build configuration
