@@ -17,6 +17,7 @@ const getParams = {
     screen_name: 'kennethillman',
     include_rts: false
 }
+
 const getCallback = (error, tweets, response) => {
 	
 	let _tweets = []
@@ -34,7 +35,6 @@ const getCallback = (error, tweets, response) => {
 }
 
 export default function twitterFeed(config) {
-	console.log('- - - > module -> twitter-feed')
 	this.nuxt.hook('build:before', generator => {
 		client.get(getTweets, getParams, getCallback)
 	})

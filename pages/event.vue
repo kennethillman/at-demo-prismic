@@ -81,7 +81,7 @@ export default {
 
 
       // Load the edit button
-      if (process.client) window.prismic.setupEditButton()
+      // if (process.client) window.prismic.setupEditButton()
 
       return {
         document,

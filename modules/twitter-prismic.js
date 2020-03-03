@@ -24,13 +24,13 @@ export default async function asyncModule (context, error, req) {
 
 	try{
 
-		console.log('- - - > module -> twitter-prismic')
 
 		// STORAGE - For clean data 
 		const _tweets_prismic = []
 	    const _tweets_twitter = []
 	    const _tweets_auto_post = [];
 	    let clearToPostTweet = false
+
 
 		// GET
 	    const api = await Prismic.getApi(process.env.PRISMIC_API, {req})
@@ -96,6 +96,7 @@ export default async function asyncModule (context, error, req) {
  //  		fse.outputJSON('./_data/Prismic-tweet-ref.json', _tweets_twitter, { spaces: 4 })
  //  		fse.outputJSON('./_data/Prismic-tweet-auto-post.json', _tweets_auto_post, { spaces: 4 })
 	// })
+	
 
     } catch (e) {
       console.log(e)
