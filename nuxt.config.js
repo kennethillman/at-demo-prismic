@@ -32,8 +32,8 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap' }
     ],
     script: [
-        { innerHTML: '{ window.prismic = { endpoint: "' + PrismicConfig.apiEndpoint + '"} }' },
-        { src: '//static.cdn.prismic.io/prismic.min.js?new=true' }
+        
+        { src: '//static.cdn.prismic.io/prismic.js?repo=at-prismic&new=true', type: 'text/javascript', defer: true, async: true }
     ],
     __dangerouslyDisableSanitizers: ['script']
   },
@@ -66,7 +66,6 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
     // 'modules/debug-nuxt-hooks',
     'modules/twitter-prismic',
     'modules/twitter-feed',
@@ -77,7 +76,6 @@ module.exports = {
     ['vue-scrollto/nuxt', { duration: 675 }],
     ['nuxt-gmaps', { key: 'AIzaSyDe2ow3YELMDerTkl5QSVitReSxBpTYAmM', }]
   ],
-
 
   styleResources: {
     scss: [
@@ -118,7 +116,6 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      console.log('- - - > nuxt.config -> Build')
        config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
   }
