@@ -25,7 +25,7 @@ export default {
   data: function() {
     return {
       link: '',
-      formattedDate: this.content.last_publication_date.substring(0, 10),
+      formattedDate: 'date', //this.content.last_publication_date.substring(0, 10),
     }
   },
   name: 'content-list-item',
@@ -92,11 +92,6 @@ export default {
     }
     
 
-
-   
-
-
-
     // - - - TYPOGRAPY
 
     .header-primary {
@@ -139,18 +134,12 @@ export default {
         margin: 0 auto;
       }
 
-
-
-
       .header {
         font-size: 24px;
       }
       .col-body {
         //padding: 6px 24px;
       }
-
-
-
 
       .teaser-image {
         figure {
