@@ -67,13 +67,13 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    'modules/test',
-    '@nuxtjs/axios',
-    '@nuxtjs/style-resources',
-    '@nuxtjs/svg-sprite',
+    // 'modules/debug-nuxt-hooks',
     'modules/twitter-prismic',
     'modules/twitter-feed',
     'modules/prismic-dynamic-routes',
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/svg-sprite',
     ['vue-scrollto/nuxt', { duration: 675 }],
     ['nuxt-gmaps', { key: 'AIzaSyDe2ow3YELMDerTkl5QSVitReSxBpTYAmM', }]
   ],
