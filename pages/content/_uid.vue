@@ -3,7 +3,7 @@
    
       <!-- <back/> -->
       <site-header />
-      <prismic-edit-button :documentId="documentId"/>
+      
 
       <div class="sgd-s-hero ">
         <div>
@@ -39,6 +39,7 @@
 import Prismic from "prismic-javascript"
 import PrismicConfig from "~/prismic.config.js"
 import Back from '~/components/Back.vue'
+import Logo from '~/components/Logo.vue'
 import Slices   from '~/components/Slices.vue'
 
 import siteHeader from '~/components/Header.vue'
@@ -49,6 +50,7 @@ export default {
   components: {
     Slices,
     Back,
+    Logo,
     siteHeader
   },
   head () {
@@ -63,9 +65,6 @@ export default {
 
       // Query to get content
       const post = await api.getByUID("content", params.uid)
-
-      // Load the edit button
-      if (process.client) window.prismic.setupEditButton()
 
       // Returns data to be used in template
       return {

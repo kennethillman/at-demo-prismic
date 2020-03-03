@@ -16,6 +16,10 @@ export default function (doc) {
     return '/content/' + doc.uid
   }
 
-  return '/'
-  //return '/not-found'
+  if (doc.type === 'preview') {
+    return '/preview'
+  }
+
+  //return '/'
+  return '/not-found'
 }

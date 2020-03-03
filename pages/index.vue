@@ -15,9 +15,7 @@
         <h6 class="title -sub -small"><a :href="document.link_to_github[0].text" target="_blank">Github</a></h6>
       </div>
     </div>
-
-
-    <!-- <p>{{allContent}}</p> -->
+    
 
     <!-- PRISMIC SLICES -- DYNAMIC LAYOUT -->
     <slices :slices-raw="allSlices" />
@@ -26,9 +24,11 @@
     <!-- LISTING - "Content" -- A PRISMIC CUSTOM TYPE  -->
 
       <div v-if="allContent.length !== 0" class="s- content-main">
-        <section v-for="content in allContent" :key="content.id" v-bind:content="content" class="latest-content-list">
+
+        <section v-for="content in allContent" :key="content.id"  class="latest-content-list">
           <content-list :content="content" />
-        </section>
+        </section> 
+
       </div>
 
       <div v-else class="content-main">
@@ -51,7 +51,7 @@
 
 
     <!-- CMS EDIT BUTTON --> 
-    <prismic-edit-button :documentId="documentId"/>
+    <!-- <prismic-edit-button :documentId="documentId"/> -->
 
   </section>
 </template>
@@ -104,7 +104,7 @@ export default {
       )
 
       // Load the edit button
-      if (process.client) window.prismic.setupEditButton()
+      // if (process.client) window.prismic.setupEditButton()
 
       return {
         document,
